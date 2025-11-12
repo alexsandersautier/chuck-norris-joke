@@ -5,7 +5,7 @@ export function useApi(baseURL) {
 
     const get = async (params = {}) => {
         console.log(params)
-        const response = await axios.get(BASEURL, { params:params, headers: {'Access-Control-Allow-Origin': '*' } })
+        const response = await axios.get(BASEURL, { params:params })
         return response.data
     }
 
