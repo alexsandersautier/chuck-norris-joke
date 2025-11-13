@@ -5,8 +5,8 @@ export function useTranslateService() {
     const api = useApi(baseURL)
 
     async function translate(text) {
-        const response = await api.get({sl: 'en', dl: 'pt_BR', text:text})
-        return response['destination-text']
+        const response = await api.get({ q: text, langpair: 'en|pt-br' })
+        return response?.responseData?.translatedText
     }
 
     return {
