@@ -4,8 +4,10 @@ export function useApi(baseURL) {
     const BASEURL = baseURL
 
     const get = async (params = {}) => {
-        console.log(params)
-        const response = await axios.get(BASEURL, { params:params })
+        const response = await axios.get(BASEURL, { params:params, headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        } })
         return response.data
     }
 
